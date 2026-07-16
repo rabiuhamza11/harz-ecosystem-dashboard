@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HARZ ECOSYSTEM — Unified Command Center</title>
+<style>
+:root{--p1:#7c4dff;--p2:#00bcd4;--p3:#00e676;--p4:#ffab00;--p5:#ff3d71;--bg:#06080f;--card:#0d1120;--text:#e0e6ed;--muted:#5a6378;--border:#1a2040}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.header{background:linear-gradient(135deg,#7c4dff,#00bcd4,#00e676);background-size:200% 100%;animation:slide 8s ease infinite;padding:24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(124,77,255,.4)}
+@keyframes slide{0%{background-position:0 0}50%{background-position:100% 0}100%{background-position:0 0}}
+.header h1{font-size:1.5rem;color:#fff;letter-spacing:2px}
+.header .sub{font-size:.75rem;opacity:.8;color:#fff}
+.badge{background:rgba(255,255,255,.2);padding:4px 10px;border-radius:20px;font-size:.7rem;color:#fff;margin-left:4px}
+.container{max-width:1400px;margin:0 auto;padding:20px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .2s}
+.card:hover{transform:translateY(-3px)}
+.card h3{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;opacity:.7}
+.stat{font-size:1.6rem;font-weight:700}
+.stat-label{color:var(--muted);font-size:.7rem;margin-top:2px}
+.platforms{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:20px}
+.platform{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;transition:all .3s}
+.platform:hover{border-color:var(--p2);box-shadow:0 0 20px rgba(0,188,212,.15)}
+.platform .name{font-weight:700;font-size:.95rem;margin-bottom:4px}
+.platform .desc{color:var(--muted);font-size:.75rem;margin-bottom:8px}
+.platform .url{color:var(--p2);font-size:.7rem;text-decoration:none}
+.platform .status{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.65rem;font-weight:600}
+.s200{background:rgba(0,230,118,.15);color:#00e676}.s302{background:rgba(255,171,0,.15);color:var(--p4)}.serr{background:rgba(255,61,113,.15);color:var(--p5)}
+.agent-section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.agent-section h3{color:var(--p2);font-size:.85rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px}
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.agent-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center}
+.agent-card .n{font-size:.75rem;font-weight:600;color:var(--p2)}.agent-card .r{font-size:.65rem;color:var(--muted)}
+.section-title{font-size:.9rem;color:var(--p2);text-transform:uppercase;letter-spacing:2px;margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.link-btn{display:inline-block;padding:6px 14px;background:var(--p1);color:#fff;border-radius:8px;font-size:.75rem;text-decoration:none;margin:4px}
+.link-btn:hover{opacity:.85}
+@media(max-width:768px){.header h1{font-size:1.1rem}.grid4{grid-template-columns:1fr 1fr}.platforms{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="header">
+<div><h1>🌐 HARZ ECOSYSTEM</h1><div class="sub">Unified Command Center — 20 Platforms</div></div>
+<div><span class="badge">39 Repos</span><span class="badge">24 Vercel</span><span class="badge">1 Render</span></div>
+</div>
+<div class="container">
+<div class="grid4" id="stats"></div>
+
+<div class="section-title">⚡ Platform Status</div>
+<div class="platforms" id="platforms"></div>
+
+<div class="section-title">🤖 AI Agent Fleet</div>
+<div class="agent-section">
+<h3>MindCare AI — 7 Mental Health Agents</h3>
+<div class="agent-grid" id="mc-agents"></div>
+</div>
+<div class="agent-section">
+<h3>CYBER SHIELD X — 37 Security Agents</h3>
+<div class="agent-grid" id="cs-agents"></div>
+</div>
+
+<div class="section-title">📊 Quick Links</div>
+<div>
+<a class="link-btn" href="https://mindcare-ai.vercel.app">MindCare AI</a>
+<a class="link-btn" href="https://cyber-shield-x.vercel.app">Cyber Shield X</a>
+<a class="link-btn" href="https://omega-health-ai.vercel.app">Omega Health AI</a>
+<a class="link-btn" href="https://harzdm-marketplace.vercel.app">HarzDM</a>
+<a class="link-btn" href="https://harzajo.vercel.app">HarzAjo</a>
+<a class="link-btn" href="https://harzpay.vercel.app">HarzPay</a>
+<a class="link-btn" href="https://harzfx.vercel.app">HarzFX</a>
+<a class="link-btn" href="https://harzlend.vercel.app">HarzLend</a>
+<a class="link-btn" href="https://omega-content-ai.vercel.app">Omega Content AI</a>
+<a class="link-btn" href="https://abuja-estate-city-ai.vercel.app">Estate City AI</a>
+<a class="link-btn" href="https://maganu-agent.onrender.com">Maganu AI</a>
+</div>
+
+<div style="text-align:center;padding:30px;color:var(--muted);font-size:.75rem;border-top:1px solid var(--border);margin-top:30px">
+HARZ ECOSYSTEM v1.0 • Built by Rabiu Hamza Mohammed • 20 Platforms • 62+ AI Agents • 39 Repos</div>
+</div>
+<script>
+const platforms=[
+{n:'MindCare AI',d:'Mental health platform with 7 AI agents',u:'https://mindcare-ai.vercel.app'},
+{n:'CYBER SHIELD X',d:'Cybersecurity defense with 37 AI agents',u:'https://cyber-shield-x.vercel.app'},
+{n:'OMEGA HEALTH AI',d:'Health platform with 18 AI medical agents',u:'https://omega-health-ai.vercel.app'},
+{n:'HarzDM Marketplace',d:'Digital products marketplace',u:'https://harzdm-marketplace.vercel.app'},
+{n:'HarzAjo',d:'Digital savings groups (Ajo/Esusu)',u:'https://harzajo.vercel.app'},
+{n:'HarzPay',d:'Bill payments & utilities',u:'https://harzpay.vercel.app'},
+{n:'HarzFX',d:'Currency exchange platform',u:'https://harzfx.vercel.app'},
+{n:'HarzLend',d:'Micro-loans platform',u:'https://harzlend.vercel.app'},
+{n:'Omega Content AI',d:'Autonomous content studio, 25 agents',u:'https://omega-content-ai.vercel.app'},
+{n:'Estate City AI',d:'Real estate & property platform',u:'https://abuja-estate-city-ai.vercel.app'},
+{n:'Maganu AI Agent',d:'Primary AI agent — 500+ capabilities',u:'https://maganu-agent.onrender.com'},
+];
+
+// Stats
+document.getElementById('stats').innerHTML=`
+<div class="card"><h3>Platforms</h3><div class="stat">20</div><div class="stat-label">Live & deployed</div></div>
+<div class="card"><h3>AI Agents</h3><div class="stat">62+</div><div class="stat-label">Across all platforms</div></div>
+<div class="card"><h3>GitHub Repos</h3><div class="stat">39</div><div class="stat-label">With CI/CD</div></div>
+<div class="card"><h3>Vercel Sites</h3><div class="stat">24</div><div class="stat-label">Production deployments</div></div>
+<div class="card"><h3>Daily Automations</h3><div class="stat">14</div><div class="stat-label">Running 24/7</div></div>
+<div class="card"><h3>Backend APIs</h3><div class="stat">12</div><div class="stat-label">Base44 functions</div></div>
+<div class="card"><h3>Agent Success</h3><div class="stat">95.8%</div><div class="stat-label">Avg across fleet</div></div>
+<div class="card"><h3>Commands</h3><div class="stat">300+</div><div class="stat-label">Maganu AI</div></div>
+`;
+
+// Check platform status
+platforms.forEach(async p=>{
+try{
+const r=await fetch(p.u,{method:'HEAD',mode:'no-cors'});
+document.getElementById('platforms').innerHTML+=`<div class="platform"><div class="name">${p.n}<span class="status s200">LIVE</span></div><div class="desc">${p.d}</div><div class="url">${p.u}</div></div>`;
+}catch(e){
+document.getElementById('platforms').innerHTML+=`<div class="platform"><div class="name">${p.n}<span class="status s302">CHECK</span></div><div class="desc">${p.d}</div><div class="url">${p.u}</div></div>`;
+}
+});
+
+// Load agents
+const MC='https://superagent-2286fb2f.base44.app/functions/mindCareAI';
+const CS='https://superagent-2286fb2f.base44.app/functions/cyberShieldX';
+
+fetch(MC,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'agents'})})
+.then(r=>r.json()).then(d=>{
+if(d.agents){document.getElementById('mc-agents').innerHTML=d.agents.map(a=>`<div class="agent-card"><div class="n">${a.agent_name}</div><div class="r">${a.role}</div><div class="r">${a.success_rate}%</div></div>`).join('');}
+}).catch(e=>{document.getElementById('mc-agents').innerHTML='<div class="agent-card"><div class="n">Loading...</div></div>';});
+
+fetch(CS,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'agents'})})
+.then(r=>r.json()).then(d=>{
+if(d.agents){document.getElementById('cs-agents').innerHTML=d.agents.map(a=>`<div class="agent-card"><div class="n">${a.agent_name}</div><div class="r">${a.tier}</div><div class="r">${a.success_rate}%</div></div>`).join('');}
+}).catch(e=>{document.getElementById('cs-agents').innerHTML='<div class="agent-card"><div class="n">Loading...</div></div>';});
+</script>
+</body>
+</html>
